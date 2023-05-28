@@ -11,7 +11,7 @@ app.set('port', process.env.PORT || 7000);
 //midlewares
 app.use(morgan('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 //listas routers
