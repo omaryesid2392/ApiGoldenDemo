@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 
 // setting
-app.set('port', process.env.PORT || 7000);
+app.set('port', process.env.PORT || 7070);
 
 //midlewares
 app.use(morgan('dev'));
@@ -15,11 +15,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 //listas routers
-app.use('/api/productos/', require('./routes/productoRouters'));
-app.use('/api/ventas/', require('./routes/ventasRouters'));
-app.use('/api/users/', require('./routes/usersRouters'));
-app.use('/api/category/', require('./routes/categoryRouters'));
-app.use('/api/establecimientos/', require('./routes/establecimientosRouters'));
+const rutaProducto = require('./routes/productoRouters');
+const rutaVentas = require('./routes/ventasRouters');
+const rutaUsers = require('./routes/usersRouters');
+const rutaCategory = require('./routes/categoryRouters');
+const rutaEstablecimiento = require('./routes/establecimientosRouters');
+
+app.use('/api/goldendemo/productos/', rutaProducto);
+app.use('/api/goldendemo/ventas/', rutaVentas);
+app.use('/api/goldendemo/users/', rutaUsers );
+app.use('/api/goldendemo/category/', rutaCategory);
+app.use('/api/goldendemo/establecimientos/', rutaEstablecimiento);
 
 //static files
 //app.use(express.static(path.join(__dirname, 'public')));

@@ -1,5 +1,5 @@
 const { json } = require('express');
-const { DocumentReference } = require('firebase-admin/firestore');
+const { DocumentReference } = require('firebase-admin/lib/firestore');
 const { db } = require('../connections');
 const categoryController = {}
 categoryController.buscarCategoria = async (req, res) => {
